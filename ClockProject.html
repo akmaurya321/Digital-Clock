@@ -30,8 +30,9 @@
   <body>
     <div class="clock-container">
       <h1 class="clock">00:00:00</h1>
-      <audio src="clock-sound.mp3" preload="auto"></audio>
+      <audio class="tick" src="clock-sound.mp3" preload="auto"></audio>
     </div>
+    <button onclick="startClock()">Start Sound</button>
     <script>
       setInterval(() => {
         const time = new Date();
@@ -45,6 +46,19 @@
         document.querySelector(".clock").textContent = timeString;
         document.querySelector("audio").play();
       }, 1000);
+
+      ///tick sound
+      
+
+
+<script>
+function startClock() {
+    const audio = document.getElementById("tick");
+    setInterval(() => {
+        audio.currentTime = 0;
+        audio.play();
+    }, 1000);
+}
     </script>
   </body>
 </html>
