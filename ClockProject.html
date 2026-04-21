@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Js clock</title>
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #282c34;
+        color: white;
+        font-family: Arial, sans-serif;
+      }
+      .clock-container {
+        text-align: center;
+        font-size: 48px;
+        border: white solid 2px;
+        padding: 20px;
+        border-radius: 10px;
+        background-color: darkslategrey;
+      }
+      body::-webkit-scrollbar {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="clock-container">
+      <h1 class="clock">00:00:00</h1>
+      <audio src="clock-sound.mp3" preload="auto"></audio>
+    </div>
+    <script>
+      setInterval(() => {
+        const time = new Date();
+        const option = {
+          timeZone: "Asia/Kolkata",
+          hour: "2-digit",
+          minute: "2-digit",
+          second: "2-digit",
+        };
+        const timeString = time.toLocaleTimeString("en-US", option);
+        document.querySelector(".clock").textContent = timeString;
+        document.querySelector("audio").play();
+      }, 1000);
+    </script>
+  </body>
+</html>
